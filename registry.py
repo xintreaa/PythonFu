@@ -1,4 +1,3 @@
-# registry.py
 class DatabaseRegistry:
     """Глобальний реєстр баз даних."""
     _databases = {}

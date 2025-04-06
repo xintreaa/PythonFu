@@ -1,4 +1,3 @@
-# controllers/user_controller.py
 from route_decorator import route
 from models import User
 

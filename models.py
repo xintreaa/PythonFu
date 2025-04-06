@@ -67,7 +67,7 @@ class BaseModel(metaclass=BaseModelMeta):
     @classmethod
     def delete(cls, obj_id):
         """Видаляє об'єкт за ID."""
-        cls._ensure_db()  # Make sure we have a database
+        cls._ensure_db()
         return cls._db_instance.delete(cls.__name__, obj_id)
 
 # Динамічні моделі

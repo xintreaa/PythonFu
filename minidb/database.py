@@ -1,29 +1,28 @@
-# minidb/database.py
 class Database:
     """Simple in-memory database simulation."""
 
     def __init__(self, name):
         """Initialize the database with a name."""
         self.name = name
-        self._storage = {}  # Format: {model_name: {id: data}}
-        self._id_counters = {}  # Format: {model_name: last_id}
+        self._storage = {}
+        self._id_counters = {}
 
     def create(self, model_name, data):
         """Create a new record for the specified model."""
-        # Initialize storage for the model if it doesn't exist
+
         if model_name not in self._storage:
             self._storage[model_name] = {}
             self._id_counters[model_name] = 0
 
-        # Generate new ID
+        # Генерація нового ID
         self._id_counters[model_name] += 1
         new_id = self._id_counters[model_name]
 
-        # Create record with ID
+        # Створення запису з таким ID
         record = data.copy()
         record['id'] = new_id
 
-        # Store record
+        # Зберігаємо запис
         self._storage[model_name][new_id] = record
 
         return record
