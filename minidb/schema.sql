@@ -1,3 +1,4 @@
+-- Schema for the SQLite database
 
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,7 +12,7 @@ CREATE TABLE IF NOT EXISTS products (
     price REAL NOT NULL
 );
 
--- One-to-Many
+-- One-to-Many relationship example
 CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
@@ -20,7 +21,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
--- Many-to-Many
+-- Many-to-Many relationship example
 CREATE TABLE IF NOT EXISTS user_roles (
     user_id INTEGER NOT NULL,
     role_id INTEGER NOT NULL,
