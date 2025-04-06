@@ -8,7 +8,7 @@ class SimpleQuery:
         """
         Ініціалізує запит до таблиці.
 
-        Args:
+        Параметри:
             table (Table): Таблиця для запиту
         """
         self.table = table
@@ -21,10 +21,10 @@ class SimpleQuery:
         """
         Вибирає стовпці для включення в результат.
 
-        Args:
+        Параметри:
             columns (list): Список назв стовпців
 
-        Returns:
+        Повертає:
             SimpleQuery: Поточний об'єкт запиту для ланцюжка
         """
         self.selected_columns = columns
@@ -34,12 +34,12 @@ class SimpleQuery:
         """
         Додає умову фільтрації.
 
-        Args:
+        Параметри:
             column (str): Назва стовпця
             operator (str): Оператор порівняння ("=", ">", "<", ">=", "<=")
             value: Значення для порівняння
 
-        Returns:
+        Повертає:
             SimpleQuery: Поточний об'єкт запиту для ланцюжка
         """
         self.filter_conditions.append((column, operator, value))
@@ -49,11 +49,11 @@ class SimpleQuery:
         """
         Встановлює сортування результатів.
 
-        Args:
+        Параметри:
             column (str): Назва стовпця для сортування
             ascending (bool, optional): Напрямок сортування
 
-        Returns:
+        Повертає:
             SimpleQuery: Поточний об'єкт запиту для ланцюжка
         """
         self.sort_column = column
@@ -64,7 +64,7 @@ class SimpleQuery:
         """
         Виконує запит і повертає результати.
 
-        Returns:
+        Повертає:
             list: Список об'єктів Row, що відповідають запиту
         """
         # Фільтруємо рядки за умовами where
@@ -126,7 +126,7 @@ class JoinedTable:
         """
         Ініціалізує з'єднання таблиць.
 
-        Args:
+        Параметри:
             left_table (Table): Ліва таблиця
             right_table (Table): Права таблиця
             left_column (str): Назва стовпця лівої таблиці для з'єднання
@@ -142,7 +142,7 @@ class JoinedTable:
         """
         Виконує з'єднання таблиць.
 
-        Returns:
+        Повертає:
             list: Список об'єктів Row з об'єднаними даними
         """
         joined_rows = []
@@ -172,7 +172,7 @@ class JoinedTable:
         """
         Повертає кількість рядків в об'єднаній таблиці.
 
-        Returns:
+        Повертає:
             int: Кількість рядків
         """
         return len(self.rows)
@@ -181,7 +181,7 @@ class JoinedTable:
         """
         Повертає ітератор по рядках об'єднаної таблиці.
 
-        Returns:
+        Повертає:
             iterator: Ітератор рядків
         """
         return iter(self.rows)

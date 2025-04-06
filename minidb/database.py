@@ -1,15 +1,25 @@
 class Database:
-    """Simple in-memory database simulation."""
 
     def __init__(self, name):
-        """Initialize the database with a name."""
+        """Ініціалізація бази даних з вказаним ім'ям.
+
+        Параметри:
+            name (str): Ім'я бази даних.
+        """
         self.name = name
         self._storage = {}
         self._id_counters = {}
 
     def create(self, model_name, data):
-        """Create a new record for the specified model."""
+        """Створити новий запис для вказаної моделі.
 
+        Параметри:
+            model_name (str): Назва моделі, для якої створюється запис.
+            data (dict): Дані для нового запису.
+
+        Повертає:
+            dict: Створений запис з новим ID.
+        """
         if model_name not in self._storage:
             self._storage[model_name] = {}
             self._id_counters[model_name] = 0
@@ -28,13 +38,30 @@ class Database:
         return record
 
     def read(self, model_name, record_id):
-        """Read a record by ID for the specified model."""
+        """Прочитати запис за ID для вказаної моделі.
+
+        Параметри:
+            model_name (str): Назва моделі, для якої необхідно отримати запис.
+            record_id (int): ID запису, який потрібно отримати.
+
+        Повертає:
+            dict or None: Запис з вказаним ID або None, якщо запис не знайдено.
+        """
         if model_name in self._storage and record_id in self._storage[model_name]:
             return self._storage[model_name][record_id]
         return None
 
     def update(self, model_name, record_id, data):
-        """Update a record by ID for the specified model."""
+        """Оновити запис за ID для вказаної моделі.
+
+        Параметри:
+            model_name (str): Назва моделі, для якої потрібно оновити запис.
+            record_id (int): ID запису, який потрібно оновити.
+            data (dict): Дані для оновлення запису.
+
+        Повертає:
+            dict or None: Оновлений запис або None, якщо запис не знайдено.
+        """
         if model_name in self._storage and record_id in self._storage[model_name]:
             record = self._storage[model_name][record_id]
             record.update(data)
@@ -42,7 +69,15 @@ class Database:
         return None
 
     def delete(self, model_name, record_id):
-        """Delete a record by ID for the specified model."""
+        """Видалити запис за ID для вказаної моделі.
+
+        Параметри:
+            model_name (str): Назва моделі, для якої потрібно видалити запис.
+            record_id (int): ID запису, який потрібно видалити.
+
+        Повертає:
+            bool: True, якщо запис було успішно видалено, або False, якщо запис не знайдено.
+        """
         if model_name in self._storage and record_id in self._storage[model_name]:
             del self._storage[model_name][record_id]
             return True

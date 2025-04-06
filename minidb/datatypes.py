@@ -8,10 +8,10 @@ class DataType:
         """
         Перевіряє відповідність значення типу даних.
 
-        Args:
+        Параметри:
             value: Значення для перевірки
 
-        Returns:
+        Повертає:
             bool: True, якщо значення відповідає типу, інакше False
         """
         raise NotImplementedError("Підкласи повинні реалізувати цей метод")
@@ -32,10 +32,10 @@ class IntegerType(DataType):
         """
         Перевіряє, чи є значення цілим числом.
 
-        Args:
+        Параметри:
             value: Значення для перевірки
 
-        Returns:
+        Повертає:
             bool: True, якщо значення є цілим числом, інакше False
         """
         if value is None:
@@ -53,7 +53,7 @@ class StringType(DataType):
         """
         Ініціалізує тип даних для рядків.
 
-        Args:
+        Параметри:
             max_length (int, optional): Максимальна довжина рядка
         """
         self.max_length = max_length
@@ -62,10 +62,10 @@ class StringType(DataType):
         """
         Перевіряє, чи є значення рядком і відповідає максимальній довжині.
 
-        Args:
+        Параметри:
             value: Значення для перевірки
 
-        Returns:
+        Повертає:
             bool: True, якщо значення є рядком і відповідає обмеженням, інакше False
         """
         if value is None:
@@ -88,10 +88,10 @@ class BooleanType(DataType):
         """
         Перевіряє, чи є значення логічним.
 
-        Args:
+        Параметри:
             value: Значення для перевірки
 
-        Returns:
+        Повертає:
             bool: True, якщо значення є логічним, інакше False
         """
         if value is None:
@@ -109,10 +109,10 @@ class DateType(DataType):
         """
         Перевіряє, чи є значення датою.
 
-        Args:
+        Параметри:
             value: Значення для перевірки
 
-        Returns:
+        Повертає:
             bool: True, якщо значення є датою, інакше False
         """
         if value is None:
