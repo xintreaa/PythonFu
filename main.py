@@ -1,15 +1,13 @@
-
 from minidb.database import Database
 from registry import DatabaseRegistry
+from route_decorator import handle_request
+from controllers.user_controller import *
 
 default_db = Database("default")
 test_db = Database("test")
 DatabaseRegistry.register("default", default_db)
 DatabaseRegistry.register("test", test_db)
 
-
-from route_decorator import handle_request
-from controllers.user_controller import *
 
 if __name__ == "__main__":
     print("=== Default Database ===")
